@@ -1,0 +1,10 @@
+env: dev
+gin:
+  mode: "debug"
+  port: 3001
+mysql:
+  dsn: "root:root@/zytool_test?charset=utf8&parseTime=True&loc=Local"
+redis:
+  ip: "127.0.0.1:6379"
+  pwd:
+  db: 1

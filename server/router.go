@@ -1,7 +1,8 @@
 package server
 
 import (
-	"os"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
 	"singo/api"
 	"singo/middleware"
 
@@ -12,8 +13,9 @@ import (
 func NewRouter() *gin.Engine {
 	r := gin.Default()
 
+	r.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
 	// 中间件, 顺序不能改
-	r.Use(middleware.Session(os.Getenv("SESSION_SECRET")))
 	r.Use(middleware.Cors())
 	r.Use(middleware.CurrentUser())
 

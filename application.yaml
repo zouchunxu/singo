@@ -1,0 +1,8 @@
+env: prod
+gin:
+  mode: "debug"
+  port: 3000
+log:
+  level: "debug"
+jwt:
+  expire: 86400
